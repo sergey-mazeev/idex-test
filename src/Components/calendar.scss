@@ -32,11 +32,14 @@
 			color: #232323;
 			line-height: 12px;
 			background-color: #f7f7f7;
+			@media screen and (max-width: 750px) {
+				display: none;
+			}
 			td {
 				padding-top: 8px;
 				padding-bottom: 8px;
 				text-align: center;
-				&:first-child {
+				&:nth-child(1) {
 					padding-left: 20px;
 					text-align: left;
 				}
@@ -45,30 +48,108 @@
 	}
 	
 	&__user-entry {
-		font-size: .75em;
+		font-size: 12px;
 		border-bottom: 1px solid #f7f7f7;
+		@media screen and (max-width: 750px) {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+		}
 		td {
-			padding-top: 8/12+em;
-			padding-bottom: 8/12+em;
+			padding: 8/12+em .25em;
+			&:nth-child(1) {
+				width: 130px;
+				padding-left: 0;
+			}
+			@media screen and (max-width: 750px) {
+				&:nth-child(1) {
+					width: calc(100% - 60px);
+					padding-bottom: 0;
+				}
+				&:nth-child(2) {
+					width: 60px;
+				}
+				&:not(:nth-child(1)):not(:nth-child(2)) {
+					width: calc(100% / 12);
+					&::before {
+						width: 100%;
+						display: block;
+						text-align: center;
+						font-size: 10px;
+						margin-bottom: .3em;
+					}
+				}
+				&:nth-child(3)::before {
+					content: 'Янв';
+				}
+				&:nth-child(4)::before {
+					content: 'Фев';
+				}
+				&:nth-child(5)::before {
+					content: 'Мар';
+				}
+				&:nth-child(6)::before {
+					content: 'Апр';
+				}
+				&:nth-child(7)::before {
+					content: 'Май';
+				}
+				&:nth-child(8)::before {
+					content: 'Июн';
+				}
+				&:nth-child(9)::before {
+					content: 'Июл';
+				}
+				&:nth-child(10)::before {
+					content: 'Авг';
+				}
+				&:nth-child(11)::before {
+					content: 'Сен';
+				}
+				&:nth-child(12)::before {
+					content: 'Окт';
+				}
+				&:nth-child(13)::before {
+					content: 'Ноя';
+				}
+				&:nth-child(14)::before {
+					content: 'Дек';
+				}
+			}
+			@media screen and (max-width: 550px) {
+				&:not(:nth-child(1)):not(:nth-child(2)) {
+					width: calc(100% / 6);
+				}
+			}
+		}
+	}
+	
+	&__user {
+		display: flex;
+		align-items: center;
+		width: 118px;
+		@media screen and (max-width: 750px) {
+			width: 100%;
 		}
 	}
 	
 	&__user-avatar {
-		display: inline-block;
-		width: 32/12+em;
-		height: 32/12+em;
+		display: block;
+		width: 32px;
+		height: 32px;
 		border-radius: 50%;
 		vertical-align: middle;
-		margin-right: 8/12+em;
+		margin-right: 8px;
+		flex-shrink: 0;
 	}
 	
-	&__name {
-		display: inline-block;
-		vertical-align: middle;
+	&__user-name {
+		word-break: break-word;
 	}
 	
 	.month {
 		display: flex;
+		justify-content: center;
 	}
 	.week {
 		margin-left: 1px;
@@ -95,6 +176,9 @@
 		}
 		&_last {
 			background-color: #f6f6f6;
+		}
+		@media screen and (max-width: 1010px) {
+			width: 5px;
 		}
 	}
 }

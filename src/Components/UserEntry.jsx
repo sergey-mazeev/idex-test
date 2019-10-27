@@ -8,8 +8,10 @@ class UserEntry extends Component {
     return (
       <tr key={`user-entry-${id}`} className="calendar__user-entry">
         <td>
-          <img className="calendar__user-avatar" src={avatar} alt={name}/>
-          <span className="calendar__user-name">{name}</span>
+          <div className="calendar__user">
+            <img className="calendar__user-avatar" src={avatar} alt={name}/>
+            <span className="calendar__user-name">{name}</span>
+          </div>
         </td>
         <td>{days}</td>
         <Schedule entries={entries} calendar={calendar}/>
